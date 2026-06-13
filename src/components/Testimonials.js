@@ -68,7 +68,7 @@ export default function Testimonials() {
                     ))}
                   </div>
                   <p style={{ fontSize: "0.85rem", fontStyle: "italic", color: "var(--text-secondary)", lineHeight: "1.5", marginBottom: "1rem" }}>
-                    "{story.comment}"
+                    &ldquo;{story.comment}&rdquo;
                   </p>
                 </div>
 
