@@ -78,7 +78,7 @@ export default function Contact() {
                   <MapPin size={18} />
                 </div>
                 <span style={{ fontSize: "0.95rem", fontWeight: "700", color: "var(--text-secondary)", lineHeight: "1.5" }}>
-                  123, Creative Street, Andheri West, Mumbai - 400058
+                  FC Road, Shivajinagar, Pune - 411005
                 </span>
               </div>
             </div>
