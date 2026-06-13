@@ -1,85 +1,66 @@
 "use client";
 
 import React from "react";
-import { Award, DollarSign, UserCheck, Settings, BookOpen, Smile } from "lucide-react";
+import { Users, BookOpen, Presentation, FolderOpen, Briefcase, Award } from "lucide-react";
 
 export default function WhyUs() {
-  const points = [
-    {
-      icon: <Award size={24} color="var(--primary)" />,
-      title: "100% Placement Assurance",
-      desc: "Our active corporate placement cell schedules interviews with top advertising agencies and IT firms in Pune until you get hired.",
-    },
-    {
-      icon: <DollarSign size={24} color="var(--accent)" />,
-      title: "Live Ad Budget Allocation",
-      desc: "Don't just learn theory. We provide you with real advertising budgets to spend on live Google & Meta campaigns in class.",
-    },
-    {
-      icon: <UserCheck size={24} color="var(--secondary)" />,
-      title: "Mentorship by Agency Owners",
-      desc: "Learn directly from active digital marketers and agency founders who share actual client case studies, not outdated textbooks.",
-    },
-    {
-      icon: <Settings size={24} color="var(--primary)" />,
-      title: "Free Tools Suite ($1,500+ Value)",
-      desc: "Get free premium access to marketing tools like Elementor Pro, hostings, SEO plugins, and premium AI writing accounts during the course.",
-    },
-    {
-      icon: <BookOpen size={24} color="var(--accent)" />,
-      title: "Flexible Hybrid Learning",
-      desc: "Choose between interactive offline classroom sessions at our FC Road centers or live, interactive online classes from your home.",
-    },
-    {
-      icon: <Smile size={24} color="var(--secondary)" />,
-      title: "1-on-1 Career Guidance",
-      desc: "Work closely with our mentors to build your professional portfolio, optimize your LinkedIn profile, and prepare for high-pressure interviews.",
-    },
+  const items = [
+    { icon: <Users size={28} />, title: "Industry Expert Trainers" },
+    { icon: <BookOpen size={28} />, title: "Practical Training" },
+    { icon: <Presentation size={28} />, title: "Live Projects" },
+    { icon: <FolderOpen size={28} />, title: "Portfolio Development" },
+    { icon: <Briefcase size={28} />, title: "Internship Opportunities" },
+    { icon: <Award size={28} />, title: "100% Placement Assistance" },
   ];
 
   return (
     <section id="why-us" className="section section-alt">
-      <div className="glow-spot" style={{ bottom: "-10%", right: "15%" }}></div>
-
-      <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        {/* Section Header */}
+      <div className="container">
+        {/* Title */}
         <div className="section-title-wrapper">
-          <span className="section-tag">Why PIIDM?</span>
-          <h2>The PIIDM Practical Training Advantage</h2>
-          <p className="section-desc">Traditional colleges teach concepts. We teach skills that generate revenue. Here is what makes us Pune's top-rated institute.</p>
+          <span className="section-tag">Why Choose Us</span>
+          <h2>WHY CHOOSE KREATV HUB</h2>
+          <p className="section-desc">We bridge the gap between creative learning and career opportunities.</p>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="grid-cols-3" style={{ gap: "2rem" }}>
-          {points.map((point, idx) => (
+        {/* Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+            gap: "2rem",
+            textAlign: "center",
+          }}
+        >
+          {items.map((item, idx) => (
             <div
               key={idx}
-              className="card-glass"
+              className="flex-center"
               style={{
-                background: "var(--bg-tertiary)",
-                border: "1px solid var(--border-glass)",
-                display: "flex",
                 flexDirection: "column",
                 gap: "1rem",
+                padding: "1.5rem 1rem",
+                background: "#ffffff",
+                border: "1.5px solid var(--border-glass)",
+                borderRadius: "var(--radius-md)",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.01)",
               }}
             >
               <div
                 className="flex-center"
                 style={{
-                  width: "52px",
-                  height: "52px",
-                  borderRadius: "var(--radius-sm)",
-                  background: "var(--bg-secondary)",
-                  border: "1px solid var(--border-glass)",
-                  alignSelf: "flex-start",
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "50%",
+                  background: "rgba(124, 58, 237, 0.08)",
+                  color: "var(--primary)",
                 }}
               >
-                {point.icon}
+                {item.icon}
               </div>
-              <div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: "800", marginBottom: "0.5rem" }}>{point.title}</h3>
-                <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: "1.6" }}>{point.desc}</p>
-              </div>
+              <h4 style={{ fontSize: "0.95rem", fontWeight: "800", color: "var(--text-primary)", lineHeight: "1.3" }}>
+                {item.title}
+              </h4>
             </div>
           ))}
         </div>

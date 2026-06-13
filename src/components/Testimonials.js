@@ -1,195 +1,132 @@
 "use client";
 
-import React, { useState } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import React from "react";
+import { Star } from "lucide-react";
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const list = [
+  const stories = [
     {
-      name: "Rohan Deshmukh",
-      role: "SEO Analyst at Cognizant",
-      comment: "PIIDM completely transformed my career path! Coming from a non-technical background, I was nervous about digital marketing. The SEO module was so hands-on; we audited active client sites. The placement cell lined up 3 interviews, and I landed my job at Cognizant before even receiving my final certificate!",
-      rating: 5,
+      name: "Riya Sharma",
+      role: "Graphic Designer",
+      comment: "KreatvHub helped me turn my creativity into a career. The training and support are amazing!",
+      initial: "R",
     },
     {
-      name: "Sneha Shinde",
-      role: "Performance Marketer at Zebra Digital Agency",
-      comment: "The Meta Ads and Google Ads sessions are gold. Our trainer made us spend active budgets on live client accounts, which gave me the confidence to handle high-budget campaigns. I learned advanced pixel tracking, CBO, and AI copy generation. Highly recommend the Gen-AI powered course!",
-      rating: 5,
+      name: "Arjun Mehta",
+      role: "Video Editor",
+      comment: "The practical approach and live projects gave me confidence and got me placed in a top company.",
+      initial: "A",
     },
     {
-      name: "Amit Kulkarni",
-      role: "Freelance WordPress Developer",
-      comment: "I joined the 3-week WordPress module. Today, I build eCommerce stores for global clients. The training teaches you real integration (SMTP setups, speed indexing, Elementor Pro layouts). The trainers are agency founders who explain things practically rather than just explaining slides.",
-      rating: 5,
+      name: "Neha Verma",
+      role: "Motion Designer",
+      comment: "From learning basics to creating industry-level motion graphics, KreatvHub has been an incredible journey.",
+      initial: "N",
+    },
+    {
+      name: "Karan Singh",
+      role: "VFX Artist",
+      comment: "The VFX course is top-notch. Faculty and guidance are excellent.",
+      initial: "K",
     },
   ];
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? list.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === list.length - 1 ? 0 : prev + 1));
-  };
-
   return (
     <section id="testimonials" className="section">
-      <div className="glow-spot" style={{ top: "30%", left: "15%" }}></div>
+      <div className="glow-spot" style={{ top: "20%", left: "-5%" }}></div>
 
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        <div className="grid-cols-2" style={{ alignItems: "center", gap: "4rem" }}>
-          {/* Left: Overall Trust Rating */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <span className="section-tag">Success Stories</span>
-            <h2>Loved by 5000+ Students & Career Changers</h2>
-            <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem", lineHeight: "1.7" }}>
-              Our students get placed in top agencies, global IT corporations, and start their own freelancing businesses. Read their real, verified feedback.
-            </p>
+        <div className="section-title-wrapper">
+          <span className="section-tag">Testimonials</span>
+          <h2>SUCCESS STORIES</h2>
+          <p className="section-desc">See how our graduates transformed their skills and achieved placement success.</p>
+        </div>
 
-            {/* Google review summary card */}
-            <div
-              className="card-glass"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "1.5rem",
-                padding: "1.5rem",
-                alignSelf: "flex-start",
-                background: "var(--bg-secondary)",
-              }}
-            >
+        <div className="grid-cols-2" style={{ alignItems: "stretch", gap: "3rem" }}>
+          {/* Left: 4 Testimonial Cards */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+            {stories.map((story, idx) => (
               <div
-                className="flex-center"
+                key={idx}
+                className="card-glass"
                 style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "50%",
-                  background: "#fff",
-                  color: "#ea4335",
-                  fontWeight: "900",
-                  fontSize: "1.75rem",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+                  padding: "1.5rem",
+                  background: "#ffffff",
+                  border: "1.5px solid var(--border-glass)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  borderRadius: "var(--radius-md)",
+                  minHeight: "180px",
                 }}
               >
-                G
-              </div>
-              <div>
-                <div style={{ display: "flex", gap: "0.25rem", color: "var(--primary)", marginBottom: "0.25rem" }}>
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="var(--primary)" />
-                  ))}
+                <div>
+                  {/* Rating Stars */}
+                  <div style={{ display: "flex", gap: "0.15rem", color: "var(--accent)", marginBottom: "0.75rem" }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={14} fill="var(--accent)" stroke="none" />
+                    ))}
+                  </div>
+                  <p style={{ fontSize: "0.85rem", fontStyle: "italic", color: "var(--text-secondary)", lineHeight: "1.5", marginBottom: "1rem" }}>
+                    "{story.comment}"
+                  </p>
                 </div>
-                <h4 style={{ fontWeight: "800" }}>4.9/5 Average Rating</h4>
-                <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>Based on 1,280+ verified Google Reviews</p>
+
+                {/* Profile row */}
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                  <div
+                    className="flex-center"
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "50%",
+                      background: "rgba(124,58,237,0.1)",
+                      color: "var(--primary)",
+                      fontWeight: "900",
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    {story.initial}
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: "0.9rem", fontWeight: "900", color: "var(--text-primary)" }}>{story.name}</h4>
+                    <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)" }}>{story.role}</p>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
 
-          {/* Right: Interactive Testimonial Slider */}
+          {/* Right: Purple Stat Box */}
           <div
-            className="card-glass"
+            className="card-glass flex-center"
             style={{
+              background: "var(--primary)",
+              color: "#ffffff",
               padding: "3rem",
-              background: "rgba(18, 20, 28, 0.8)",
-              minHeight: "360px",
-              display: "flex",
+              borderRadius: "var(--radius-md)",
               flexDirection: "column",
-              justifyContent: "space-between",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.4)",
+              textAlign: "center",
+              gap: "2.5rem",
+              justifyContent: "center",
+              borderColor: "var(--primary)",
+              boxShadow: "0 15px 30px rgba(124, 58, 237, 0.25)",
             }}
           >
             <div>
-              {/* Quote icon & Rating */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.75rem" }}>
-                <div style={{ display: "flex", gap: "0.2rem", color: "var(--primary)" }}>
-                  {[...Array(list[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} size={18} fill="var(--primary)" />
-                  ))}
-                </div>
-                <Quote size={36} color="var(--primary)" style={{ opacity: 0.15 }} />
-              </div>
-
-              {/* Review Text */}
-              <p
-                style={{
-                  fontSize: "1.1rem",
-                  lineHeight: "1.7",
-                  fontStyle: "italic",
-                  color: "var(--text-primary)",
-                  marginBottom: "2rem",
-                }}
-              >
-                "{list[currentIndex].comment}"
+              <h3 style={{ fontSize: "3rem", fontWeight: "950", color: "#ffffff", lineHeight: "1" }}>500+</h3>
+              <p style={{ fontSize: "1rem", fontWeight: "800", opacity: 0.9, marginTop: "0.25rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                Students Placed
               </p>
             </div>
 
-            {/* Reviewer Details and Navigation */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                paddingTop: "1.5rem",
-                borderTop: "1px solid var(--border-glass)",
-              }}
-            >
-              <div>
-                <h4 style={{ fontWeight: "800" }}>{list[currentIndex].name}</h4>
-                <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>{list[currentIndex].role}</p>
-              </div>
+            <div style={{ width: "60px", height: "1.5px", background: "rgba(255, 255, 255, 0.3)" }}></div>
 
-              {/* Nav Buttons */}
-              <div style={{ display: "flex", gap: "0.75rem" }}>
-                <button
-                  onClick={handlePrev}
-                  className="flex-center"
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    border: "1px solid var(--border-glass)",
-                    color: "var(--text-primary)",
-                    background: "rgba(255,255,255,0.02)",
-                    transition: "var(--transition-fast)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--primary)";
-                    e.currentTarget.style.color = "var(--primary)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "var(--border-glass)";
-                    e.currentTarget.style.color = "var(--text-primary)";
-                  }}
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="flex-center"
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    border: "1px solid var(--border-glass)",
-                    color: "var(--text-primary)",
-                    background: "rgba(255,255,255,0.02)",
-                    transition: "var(--transition-fast)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--primary)";
-                    e.currentTarget.style.color = "var(--primary)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "var(--border-glass)";
-                    e.currentTarget.style.color = "var(--text-primary)";
-                  }}
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
+            <div>
+              <h3 style={{ fontSize: "3rem", fontWeight: "950", color: "#ffffff", lineHeight: "1" }}>100+</h3>
+              <p style={{ fontSize: "1rem", fontWeight: "800", opacity: 0.9, marginTop: "0.25rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                Success Stories
+              </p>
             </div>
           </div>
         </div>

@@ -1,228 +1,268 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Star, Award, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, Star, Users, Award, BookOpen, Building } from "lucide-react";
 
 export default function Hero() {
+  const stats = [
+    { value: "1000+", label: "Students Trained", icon: <Users size={16} color="var(--primary)" /> },
+    { value: "95%", label: "Placement Rate", icon: <Award size={16} color="var(--primary)" /> },
+    { value: "50+", label: "Industry Experts", icon: <BookOpen size={16} color="var(--primary)" /> },
+    { value: "100+", label: "Companies Hired", icon: <Building size={16} color="var(--primary)" /> },
+  ];
+
   return (
-    <section className="section" style={{ paddingTop: "calc(var(--header-height) + 4rem)", paddingBottom: "6rem" }}>
-      {/* Decorative Glow Spots */}
-      <div className="glow-spot" style={{ top: "10%", left: "-10%" }}></div>
-      <div className="glow-spot-secondary" style={{ bottom: "10%", right: "-10%" }}></div>
+    <section className="section" style={{ paddingTop: "calc(var(--header-height) + 3rem)", paddingBottom: "5rem" }}>
+      {/* Glow Spots */}
+      <div className="glow-spot" style={{ top: "10%", left: "-5%" }}></div>
+      <div className="glow-spot-secondary" style={{ bottom: "10%", right: "-5%" }}></div>
 
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        <div className="grid-cols-2" style={{ alignItems: "center" }}>
-          {/* Left Column: Text & Content */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
-            {/* Award Badge */}
-            <div
-              className="flex-center"
-              style={{
-                alignSelf: "flex-start",
-                gap: "0.5rem",
-                padding: "0.5rem 1rem",
-                borderRadius: "100px",
-                background: "rgba(252, 193, 1, 0.1)",
-                border: "1px solid rgba(252, 193, 1, 0.2)",
-                color: "var(--primary)",
-                fontWeight: "700",
-                fontSize: "0.85rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-            >
-              <Award size={16} />
-              <span>Best Digital Marketing Institute in Pune</span>
-            </div>
-
-            {/* Main Title */}
-            <h1>
-              Master Digital Marketing & <span className="text-gradient-dual">Generative AI</span>
+        <div className="grid-cols-2" style={{ alignItems: "center", gap: "3rem" }}>
+          
+          {/* Left Column: Headings & CTA */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: "950", lineHeight: "1.1", color: "var(--text-primary)" }}>
+              LEARN.<br />
+              <span style={{ color: "var(--primary)" }}>CREATE.</span><br />
+              EARN.
             </h1>
-
-            {/* Subtitle */}
-            <p style={{ color: "var(--text-secondary)", fontSize: "1.15rem", lineHeight: "1.7", maxWidth: "540px" }}>
-              Accelerate your career with Pune's #1 performance marketing training program. Get 100% placement assurance, practical live projects, and 15+ industry-recognized certifications.
+            
+            <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem", lineHeight: "1.6", maxWidth: "480px" }}>
+              KreatvHub Institute is your creative launchpad. Learn industry-relevant skills and build a career in the creative world.
             </p>
 
-            {/* CTA Buttons */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-              <a href="#contact" className="btn btn-gradient">
-                <span>Book Free Demo Class</span>
-                <ArrowRight size={18} />
+            {/* Hero CTA buttons */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "0.5rem" }}>
+              <a 
+                href="#contact" 
+                className="btn btn-primary" 
+                style={{ 
+                  borderRadius: "4px", 
+                  padding: "0.9rem 2rem",
+                  fontSize: "0.9rem",
+                  fontWeight: "800"
+                }}
+              >
+                <span>ENROLL NOW</span>
+                <ArrowRight size={16} />
               </a>
-              <a href="#courses" className="btn btn-secondary">
-                <span>View Courses</span>
+              <a 
+                href="#contact" 
+                className="btn btn-secondary" 
+                style={{ 
+                  borderRadius: "4px", 
+                  padding: "0.9rem 2rem",
+                  fontSize: "0.9rem",
+                  fontWeight: "800"
+                }}
+              >
+                <span>FREE CAREER COUNSELING</span>
+                <ArrowRight size={16} />
               </a>
             </div>
 
-            {/* Trust Points */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "2rem",
-                marginTop: "1.5rem",
+            {/* Quick Stats Grid */}
+            <div 
+              style={{ 
+                display: "grid", 
+                gridTemplateColumns: "repeat(2, 1fr)", 
+                gap: "1.5rem", 
+                marginTop: "2rem",
                 paddingTop: "2rem",
-                borderTop: "1px solid var(--border-glass)",
+                borderTop: "1.5px solid var(--border-glass)" 
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <div
-                  className="flex-center"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "50%",
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid var(--border-glass)",
-                    color: "var(--primary)",
-                  }}
-                >
-                  <Star size={20} fill="var(--primary)" />
+              {stats.map((stat, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                  <div 
+                    className="flex-center" 
+                    style={{ 
+                      width: "36px", 
+                      height: "36px", 
+                      borderRadius: "50%", 
+                      background: "rgba(124, 58, 237, 0.08)",
+                      color: "var(--primary)",
+                      flexShrink: 0
+                    }}
+                  >
+                    {stat.icon}
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: "1.1rem", fontWeight: "900", color: "var(--text-primary)", lineHeight: "1.2" }}>{stat.value}</h4>
+                    <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>{stat.label}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 style={{ fontWeight: "700" }}>4.9/5 Rating</h4>
-                  <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>1,200+ Google Reviews</p>
-                </div>
-              </div>
-
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <div
-                  className="flex-center"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "50%",
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid var(--border-glass)",
-                    color: "var(--accent)",
-                  }}
-                >
-                  <ShieldCheck size={20} />
-                </div>
-                <div>
-                  <h4 style={{ fontWeight: "700" }}>100% Job Guarantee</h4>
-                  <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>Or 100% Money Back</p>
-                </div>
-              </div>
+              ))}
             </div>
+
           </div>
 
-          {/* Right Column: Visual Dashboard Mockup */}
-          <div className="animated-float" style={{ position: "relative", display: "flex", justifyContent: "center" }}>
-            {/* Main Glass Dashboard Card */}
-            <div
-              className="card-glass"
+          {/* Right Column: Work Space Mockup Graphic */}
+          <div className="animated-float" style={{ display: "flex", justifyContent: "center", position: "relative" }}>
+            <div 
               style={{
                 width: "100%",
-                maxWidth: "480px",
-                background: "rgba(18, 20, 28, 0.8)",
-                padding: "2rem",
-                boxShadow: "0 30px 60px rgba(0, 0, 0, 0.6)",
+                maxWidth: "460px",
+                height: "300px",
+                background: "#0f172a",
+                borderRadius: "var(--radius-md)",
+                border: "4px solid #334155",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                display: "flex",
+                flexDirection: "column",
+                overflow: "hidden",
+                position: "relative"
               }}
             >
-              {/* Header */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
-                <div>
-                  <span style={{ fontSize: "0.75rem", textTransform: "uppercase", color: "var(--text-muted)", fontWeight: "700" }}>Live Analytics</span>
-                  <h3 style={{ fontSize: "1.5rem", fontWeight: "800" }}>Student Growth</h3>
-                </div>
-                <div
-                  className="flex-center"
+              {/* Top Bar */}
+              <div style={{ background: "#1e293b", height: "30px", display: "flex", alignItems: "center", padding: "0 1rem", gap: "0.4rem" }}>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ef4444" }}></div>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#eab308" }}></div>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e" }}></div>
+              </div>
+              
+              {/* Workspace Inner */}
+              <div 
+                style={{ 
+                  flex: 1, 
+                  display: "flex", 
+                  alignItems: "center", 
+                  justifyContent: "center",
+                  background: "radial-gradient(circle, #3b0764 0%, #0f172a 100%)",
+                  position: "relative"
+                }}
+              >
+                {/* Simulated Workspace Art */}
+                <div 
                   style={{
-                    padding: "0.25rem 0.75rem",
-                    borderRadius: "50px",
-                    background: "rgba(16, 185, 129, 0.1)",
-                    color: "var(--success)",
-                    fontSize: "0.75rem",
-                    fontWeight: "700",
+                    width: "140px",
+                    height: "140px",
+                    borderRadius: "50%",
+                    border: "2px dashed rgba(255, 255, 255, 0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    animation: "spin-slow 20s linear infinite"
                   }}
                 >
-                  +187% This Mo
+                  <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "rgba(124,58,237,0.2)" }}></div>
                 </div>
-              </div>
-
-              {/* Bar Chart Mock */}
-              <div style={{ display: "flex", alignItems: "flex-end", height: "140px", gap: "0.75rem", marginBottom: "1.5rem" }}>
-                {[30, 45, 35, 60, 50, 80, 95].map((height, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      flex: 1,
-                      height: `${height}%`,
-                      background: index === 6 ? "var(--primary)" : "linear-gradient(to top, var(--secondary), var(--accent))",
-                      borderRadius: "6px 6px 0 0",
-                      position: "relative",
-                      transition: "height var(--transition-slow)",
-                    }}
-                  ></div>
-                ))}
-              </div>
-
-              {/* Stats Footer Grid */}
-              <div className="grid-cols-2" style={{ gap: "1rem", borderTop: "1px solid var(--border-glass)", paddingTop: "1.5rem" }}>
-                <div>
-                  <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: "600" }}>Total Enrolled</span>
-                  <h4 style={{ fontSize: "1.25rem", fontWeight: "800", color: "var(--primary)" }}>5,480+ Students</h4>
-                </div>
-                <div>
-                  <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: "600" }}>Placement Rate</span>
-                  <h4 style={{ fontSize: "1.25rem", fontWeight: "800", color: "var(--accent)" }}>98.4% Achieved</h4>
+                
+                {/* Tag Overlay */}
+                <div 
+                  style={{
+                    position: "absolute",
+                    bottom: "20px",
+                    padding: "0.4rem 1rem",
+                    borderRadius: "50px",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(5px)",
+                    fontSize: "0.85rem",
+                    fontWeight: "800",
+                    color: "#ffffff"
+                  }}
+                >
+                  CREATIVE STUDIO
                 </div>
               </div>
             </div>
 
-            {/* Floating Bubble 1: Active Users */}
-            <div
-              className="card-glass"
+            {/* Floating Software Badges */}
+            {/* Premiere Pro */}
+            <div 
               style={{
                 position: "absolute",
-                top: "-20px",
-                right: "-20px",
-                padding: "0.75rem 1.25rem",
-                borderRadius: "100px",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                background: "rgba(18, 20, 28, 0.9)",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4)",
-              }}
-            >
-              <div className="flex-center" style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(6, 182, 212, 0.15)", color: "var(--accent)" }}>
-                <Users size={16} />
-              </div>
-              <div>
-                <p style={{ fontSize: "0.7rem", color: "var(--text-muted)", fontWeight: "700", textTransform: "uppercase" }}>Batch Capacity</p>
-                <h5 style={{ fontSize: "0.9rem", fontWeight: "800" }}>12/15 Seats Left</h5>
-              </div>
-            </div>
-
-            {/* Floating Bubble 2: Next Batch */}
-            <div
-              className="card-glass"
-              style={{
-                position: "absolute",
-                bottom: "-20px",
+                top: "10px",
                 left: "-20px",
-                padding: "0.75rem 1.25rem",
-                borderRadius: "100px",
+                width: "44px",
+                height: "44px",
+                borderRadius: "8px",
+                background: "#00005c",
+                border: "2.5px solid #00f3ff",
+                color: "#00f3ff",
                 display: "flex",
                 alignItems: "center",
-                gap: "0.75rem",
-                background: "rgba(18, 20, 28, 0.9)",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4)",
+                justifyContent: "center",
+                fontWeight: "900",
+                fontSize: "1.1rem",
+                boxShadow: "0 8px 20px rgba(0,243,255,0.2)"
               }}
             >
-              <div className="flex-center" style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(252, 193, 1, 0.15)", color: "var(--primary)" }}>
-                <Award size={16} />
-              </div>
-              <div>
-                <p style={{ fontSize: "0.7rem", color: "var(--text-muted)", fontWeight: "700", textTransform: "uppercase" }}>Next New Batch</p>
-                <h5 style={{ fontSize: "0.9rem", fontWeight: "800", color: "var(--primary)" }}>Starts Monday!</h5>
-              </div>
+              Pr
             </div>
+            
+            {/* Photoshop */}
+            <div 
+              style={{
+                position: "absolute",
+                top: "-25px",
+                right: "30px",
+                width: "44px",
+                height: "44px",
+                borderRadius: "8px",
+                background: "#001c3d",
+                border: "2.5px solid #00c8ff",
+                color: "#00c8ff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "900",
+                fontSize: "1.1rem",
+                boxShadow: "0 8px 20px rgba(0,200,ff,0.2)"
+              }}
+            >
+              Ps
+            </div>
+
+            {/* After Effects */}
+            <div 
+              style={{
+                position: "absolute",
+                bottom: "30px",
+                left: "-30px",
+                width: "44px",
+                height: "44px",
+                borderRadius: "8px",
+                background: "#20003b",
+                border: "2.5px solid #d300ff",
+                color: "#d300ff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "900",
+                fontSize: "1.1rem",
+                boxShadow: "0 8px 20px rgba(211,0,255,0.2)"
+              }}
+            >
+              Ae
+            </div>
+
+            {/* Illustrator */}
+            <div 
+              style={{
+                position: "absolute",
+                bottom: "-15px",
+                right: "-15px",
+                width: "44px",
+                height: "44px",
+                borderRadius: "8px",
+                background: "#331c00",
+                border: "2.5px solid #ff9f00",
+                color: "#ff9f00",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "900",
+                fontSize: "1.1rem",
+                boxShadow: "0 8px 20px rgba(255,159,0,0.2)"
+              }}
+            >
+              Ai
+            </div>
+
           </div>
+
         </div>
       </div>
     </section>
