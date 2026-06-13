@@ -33,7 +33,7 @@ export default function Hero() {
             </p>
 
             {/* Hero CTA buttons */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "0.5rem" }}>
+            <div className="hero-buttons" style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "0.5rem" }}>
               <a 
                 href="#contact" 
                 className="btn btn-primary" 

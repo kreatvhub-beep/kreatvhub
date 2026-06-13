@@ -25,6 +25,7 @@ export default function WhyUs() {
 
         {/* Grid */}
         <div
+          className="why-us-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
